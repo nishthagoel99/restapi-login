@@ -1,0 +1,12 @@
+var express=require('express');
+var app=express();
+var bodyParser=require('body-parser');
+var userRoutes=require('./api/routes/users');
+var loginRoutes=require('./api/routes/login');
+var hashRoutes=require('./api/routes/createhash');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use('/signup',userRoutes);
+app.use('/login',loginRoutes);
+app.use('/hash',hashRoutes);
+module.exports=app;
